@@ -12,8 +12,8 @@ const nextConfig = {
   },
   // Если вы размещаете не в корне домена, а в подпапке (например, username.github.io/logistics-platform)
   // раскомментируйте следующую строку и укажите имя вашего репозитория
-  // basePath: '/logistics-platform',
-  // assetPrefix: '/logistics-platform',
-};
+  basePath: '/logist-plus',
+  assetPrefix: '/logist-plus',
+}
 
-export default nextConfig;
+export default nextConfig
