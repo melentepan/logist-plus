@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #1a1a1a;
+    --foreground: #d4d3d3;
+    --card: #2a2a2a;
+    --card-foreground: #d4d3d3;
+    --popover: #2a2a2a;
+    --popover-foreground: #d4d3d3;
+    --primary: #d8b323;
+    --primary-foreground: #1a1a1a;
+    --secondary: #2a2a2a;
+    --secondary-foreground: #d4d3d3;
+    --muted: #2a2a2a;
+    --muted-foreground: #d1d5db;
+    --accent: #d8b323;
+    --accent-foreground: #1a1a1a;
+    --destructive: #ef4444;
+    --destructive-foreground: #fecaca;
+    --border: #3a3a3a;
+    --input: #3a3a3a;
+    --ring: #d8b323;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Кастомные стили для инпутов с золотым акцентом */
+.input-gold {
+  @apply border-input bg-background text-foreground;
+  @apply focus:border-gold focus:ring-2 focus:ring-gold/20;
+  @apply placeholder:text-muted-foreground;
+  @apply transition-all duration-200;
+}
+
+.input-gold:hover {
+  @apply border-gold/50;
+}
+
+/* Стили для Select компонентов */
+.select-gold [data-state="open"] {
+  @apply border-gold ring-2 ring-gold/20;
+}
+
+/* Стили для активных состояний */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none border-gold ring-2 ring-gold/20;
+}
+
+/* Стили для placeholder текста */
+input::placeholder,
+textarea::placeholder {
+  @apply text-muted-foreground/70;
+}
+
+/* Более яркие цвета для текста */
+.text-bright {
+  @apply text-gray-200;
+}
+
+.text-medium {
+  @apply text-gray-300;
+}
+
+/* Улучшенный контраст для статистики */
+.stats-card {
+  @apply bg-card-bg border border-border;
+}
+
+.stats-text {
+  @apply text-gray-200 text-sm;
+}
+
+.stats-value {
+  @apply text-gray-100 font-medium;
+}
+
+/* Заголовки золотого цвета */
+.heading-gold {
+  @apply text-gold font-bold;
+}
+
+/* Улучшенный контраст для фона статистики */
+.stats-bg {
+  @apply bg-card-bg border border-border text-gray-200;
+}
+
+/* Замена стандартных серых цветов на более яркие */
+.text-gray-400 {
+  color: #a1a1aa !important; /* Более яркий вариант #6B7280 */
+}
+
+.text-gray-500 {
+  color: #d4d4d8 !important; /* Более яркий вариант #6B7280 */
+}
+
+.text-gray-600 {
+  color: #e4e4e7 !important; /* Более яркий вариант #4B5563 */
+}
+
+.text-gray-700 {
+  color: #f4f4f5 !important; /* Более яркий вариант #374151 */
+}
