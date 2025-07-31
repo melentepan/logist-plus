@@ -5,7 +5,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Search, MapPin, FileText, User, Menu } from 'lucide-react'
+import {
+  Search,
+  MapPin,
+  FileText,
+  User,
+  Menu,
+  MessageCircle,
+} from 'lucide-react'
 import Image from 'next/image'
 
 // Компонент навигации с адаптивным дизайном
@@ -19,6 +26,7 @@ export function Navigation() {
     { name: 'Отслеживание', href: '/tracking', icon: MapPin },
     { name: 'Договоры', href: '/contracts', icon: FileText },
     { name: 'Профиль', href: '/profile', icon: User },
+    { name: 'Поддержка', href: '/support', icon: MessageCircle },
   ]
 
   // Компонент для рендеринга пунктов навигации
