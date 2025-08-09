@@ -1,12 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+import type { Config } from "tailwindcss"
+
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./index.html",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
@@ -22,52 +22,51 @@ export default {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
-        ring: "#D8B323",
-        background: "#1A1A1A",
-        foreground: "#D4D3D3",
+        ring: "#ffbd00",
+        background: "#FFFFFF",
+        foreground: "#000000",
         primary: {
-          DEFAULT: "#D8B323",
-          foreground: "#1A1A1A",
+          DEFAULT: "#ffbd00",
+          foreground: "#000000",
         },
         secondary: {
-          DEFAULT: "#2A2A2A",
-          foreground: "#D4D3D3",
+          DEFAULT: "#f5f5f5",
+          foreground: "#000000",
         },
         destructive: {
-          DEFAULT: "#EF4444",
-          foreground: "#FECACA",
+          DEFAULT: "#ff4444",
+          foreground: "#FFFFFF",
         },
         muted: {
-          DEFAULT: "#2A2A2A",
-          foreground: "#D1D5DB",
+          DEFAULT: "#f5f5f5",
+          foreground: "#666666",
         },
         accent: {
-          DEFAULT: "#D8B323",
-          foreground: "#1A1A1A",
+          DEFAULT: "#ffbd00",
+          foreground: "#000000",
         },
         popover: {
-          DEFAULT: "#2A2A2A",
-          foreground: "#D4D3D3",
+          DEFAULT: "#FFFFFF",
+          foreground: "#000000",
         },
         card: {
-          DEFAULT: "#2A2A2A",
-          foreground: "#D4D3D3",
+          DEFAULT: "#000000",
+          foreground: "#FFFFFF",
         },
-        gold: "#D8B323",
-        "gold-hover": "#E6C547",
-        "gold-focus": "#D8B323",
-        "light-gray": "#D4D3D3",
-        "dark-bg": "#1A1A1A",
-        "card-bg": "#2A2A2A",
-        "hover-bg": "#3A3A3A",
-        "text-bright": "#E5E7EB",
-        "text-medium": "#D1D5DB",
-        gray: {
-          400: "#A1A1AA",
-          500: "#D4D4D8",
-          600: "#E4E4E7",
-          700: "#F4F4F5",
-        },
+        // Кастомные цвета для проекта
+        gold: "#ffbd00",
+        "gold-hover": "#e6a800",
+        "gold-focus": "#ffbd00",
+        "light-text": "#FFFFFF",
+        "dark-text": "#000000",
+        "light-bg": "#FFFFFF",
+        "card-bg": "#000000",
+        "hover-bg": "#1a1a1a",
+        success: "#00ff00",
+        error: "#ff4444",
+        "text-bright": "#FFFFFF",
+        "text-medium": "#cccccc",
+        "text-muted": "#666666",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -89,10 +88,12 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       boxShadow: {
-        gold: "0 0 0 2px rgba(216, 179, 35, 0.2)",
-        "gold-lg": "0 0 0 3px rgba(216, 179, 35, 0.3)",
+        gold: "0 0 0 2px rgba(255, 189, 0, 0.2)",
+        "gold-lg": "0 0 0 3px rgba(255, 189, 0, 0.3)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
+
+export default config

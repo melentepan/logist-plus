@@ -14,6 +14,7 @@ import {
   MessageCircle,
 } from 'lucide-react'
 import Image from 'next/image'
+import { APP_CONFIG } from '@/lib/config'
 
 // Компонент навигации с адаптивным дизайном
 export function Navigation() {
@@ -42,9 +43,7 @@ export function Navigation() {
             href={item.href}
             onClick={() => mobile && setIsOpen(false)} // Закрываем мобильное меню при клике
             className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              isActive
-                ? 'bg-gold/20 text-gold'
-                : 'text-gray-400 hover:text-light-gray hover:bg-hover-bg'
+              isActive ? 'nav-item-active' : 'nav-item-inactive'
             } ${mobile ? 'w-full justify-start' : ''}`}
           >
             <Icon className='h-4 w-4' />
@@ -56,20 +55,20 @@ export function Navigation() {
   )
 
   return (
-    <nav className='bg-card-bg shadow-sm border-b border-border'>
+    <nav className='bg-card-bg shadow-sm border-b border-gray-600'>
       <div className='container mx-auto px-4'>
         <div className='flex items-center justify-between h-16'>
-          {/* Логотип с вашим изображением */}
+          {/* Логотип с использованием конфигурации */}
           <Link href='/' className='flex items-center gap-2'>
             <Image
-              src='/logist-plus/logist_logo.png'
-              alt='Logist+ Logo'
+              src={APP_CONFIG.logo.main || '/placeholder.svg'}
+              alt={APP_CONFIG.logo.alt}
               width={32}
               height={32}
               className='rounded-full'
             />
             <span className='text-xl font-bold text-gold'>
-              Logist<span className='text-light-gray'>+</span>
+              {APP_CONFIG.app.name}
             </span>
           </Link>
 
@@ -82,21 +81,24 @@ export function Navigation() {
           <div className='md:hidden'>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant='ghost' size='sm'>
+                <Button variant='default' size='sm'>
                   <Menu className='h-5 w-5' />
                 </Button>
               </SheetTrigger>
-              <SheetContent side='right' className='w-64'>
+              <SheetContent
+                side='right'
+                className='w-64 bg-card-bg border-gray-600'
+              >
                 <div className='flex items-center gap-2 mb-8'>
                   <Image
-                    src='/logist-plus/logist_logo.png'
-                    alt='Logist+ Logo'
+                    src={APP_CONFIG.logo.main || '/placeholder.svg'}
+                    alt={APP_CONFIG.logo.alt}
                     width={24}
                     height={24}
                     className='rounded-full'
                   />
                   <span className='text-lg font-bold text-gold'>
-                    Logist<span className='text-light-gray'>+</span>
+                    {APP_CONFIG.app.name}
                   </span>
                 </div>
                 <div className='flex flex-col space-y-2'>

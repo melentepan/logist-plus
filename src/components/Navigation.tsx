@@ -1,23 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import {
-  Search,
-  MapPin,
-  FileText,
-  User,
-  Menu,
-  MessageCircle,
-} from 'lucide-react'
-import Image from 'next/image'
+import { Search, MapPin, FileText, User, Menu } from 'lucide-react'
 
 // Компонент навигации с адаптивным дизайном
 export function Navigation() {
-  const pathname = usePathname() // Получаем текущий путь для подсветки активной страницы
+  const location = useLocation() // Получаем текущий путь для подсветки активной страницы
   const [isOpen, setIsOpen] = useState(false) // Состояние мобильного меню
 
   // Конфигурация пунктов навигации
@@ -26,7 +17,6 @@ export function Navigation() {
     { name: 'Отслеживание', href: '/tracking', icon: MapPin },
     { name: 'Договоры', href: '/contracts', icon: FileText },
     { name: 'Профиль', href: '/profile', icon: User },
-    { name: 'Поддержка', href: '/support', icon: MessageCircle },
   ]
 
   // Компонент для рендеринга пунктов навигации
@@ -34,12 +24,12 @@ export function Navigation() {
     <>
       {navigation.map((item) => {
         const Icon = item.icon
-        const isActive = pathname === item.href // Проверяем активную страницу
+        const isActive = location.pathname === item.href // Проверяем активную страницу
 
         return (
           <Link
             key={item.name}
-            href={item.href}
+            to={item.href}
             onClick={() => mobile && setIsOpen(false)} // Закрываем мобильное меню при клике
             className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
               isActive
@@ -60,13 +50,11 @@ export function Navigation() {
       <div className='container mx-auto px-4'>
         <div className='flex items-center justify-between h-16'>
           {/* Логотип с вашим изображением */}
-          <Link href='/' className='flex items-center gap-2'>
-            <Image
-              src='/logist-plus/logist_logo.png'
+          <Link to='/' className='flex items-center gap-2'>
+            <img
+              src='/logist_logo.png'
               alt='Logist+ Logo'
-              width={32}
-              height={32}
-              className='rounded-full'
+              className='w-8 h-8 rounded-full'
             />
             <span className='text-xl font-bold text-gold'>
               Logist<span className='text-light-gray'>+</span>
@@ -88,12 +76,10 @@ export function Navigation() {
               </SheetTrigger>
               <SheetContent side='right' className='w-64'>
                 <div className='flex items-center gap-2 mb-8'>
-                  <Image
-                    src='/logist-plus/logist_logo.png'
+                  <img
+                    src='/logist_logo.png'
                     alt='Logist+ Logo'
-                    width={24}
-                    height={24}
-                    className='rounded-full'
+                    className='w-6 h-6 rounded-full'
                   />
                   <span className='text-lg font-bold text-gold'>
                     Logist<span className='text-light-gray'>+</span>

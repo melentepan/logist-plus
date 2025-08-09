@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: #1a1a1a;
-    --foreground: #d4d3d3;
-    --card: #2a2a2a;
-    --card-foreground: #d4d3d3;
-    --popover: #2a2a2a;
-    --popover-foreground: #d4d3d3;
-    --primary: #d8b323;
-    --primary-foreground: #1a1a1a;
-    --secondary: #2a2a2a;
-    --secondary-foreground: #d4d3d3;
-    --muted: #2a2a2a;
-    --muted-foreground: #d1d5db;
-    --accent: #d8b323;
-    --accent-foreground: #1a1a1a;
-    --destructive: #ef4444;
-    --destructive-foreground: #fecaca;
-    --border: #3a3a3a;
-    --input: #3a3a3a;
-    --ring: #d8b323;
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #000000;
+    --card-foreground: #ffffff;
+    --popover: #ffffff;
+    --popover-foreground: #000000;
+    --primary: #ffbd00;
+    --primary-foreground: #000000;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #000000;
+    --muted: #f5f5f5;
+    --muted-foreground: #666666;
+    --accent: #ffbd00;
+    --accent-foreground: #000000;
+    --destructive: #ff4444;
+    --destructive-foreground: #ffffff;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #ffbd00;
     --radius: 0.5rem;
   }
 }
@@ -39,7 +39,7 @@
 /* Кастомные стили для инпутов с золотым акцентом */
 .input-gold {
   @apply border-input bg-background text-foreground;
-  @apply focus:border-gold focus:ring-2 focus:ring-gold/20;
+  @apply focus:ring-2 focus:ring-gold/20; /* Убрано focus:border-gold */
   @apply placeholder:text-muted-foreground;
   @apply transition-all duration-200;
 }
@@ -57,7 +57,7 @@
 input:focus,
 textarea:focus,
 select:focus {
-  @apply outline-none border-gold ring-2 ring-gold/20;
+  @apply outline-none ring-2 ring-gold/20; /* Убрано border-gold */
 }
 
 /* Стили для placeholder текста */
@@ -66,26 +66,17 @@ textarea::placeholder {
   @apply text-muted-foreground/70;
 }
 
-/* Более яркие цвета для текста */
-.text-bright {
-  @apply text-gray-200;
-}
-
-.text-medium {
-  @apply text-gray-300;
-}
-
-/* Улучшенный контраст для статистики */
+/* Стили для карточек */
 .stats-card {
-  @apply bg-card-bg border border-border;
+  @apply bg-card-bg border border-border text-light-text;
 }
 
 .stats-text {
-  @apply text-gray-200 text-sm;
+  @apply text-light-text text-sm;
 }
 
 .stats-value {
-  @apply text-gray-100 font-medium;
+  @apply text-light-text font-medium;
 }
 
 /* Заголовки золотого цвета */
@@ -95,22 +86,41 @@ textarea::placeholder {
 
 /* Улучшенный контраст для фона статистики */
 .stats-bg {
-  @apply bg-card-bg border border-border text-gray-200;
+  @apply bg-card-bg border border-border text-light-text;
 }
 
-/* Замена стандартных серых цветов на более яркие */
-.text-gray-400 {
-  color: #a1a1aa !important; /* Более яркий вариант #6B7280 */
+/* Стили для успешных действий */
+.success-text {
+  @apply text-success;
 }
 
-.text-gray-500 {
-  color: #d4d4d8 !important; /* Более яркий вариант #6B7280 */
+.success-bg {
+  @apply bg-success/10 border-success/20;
 }
 
-.text-gray-600 {
-  color: #e4e4e7 !important; /* Более яркий вариант #4B5563 */
+/* Стили для ошибок */
+.error-text {
+  @apply text-error;
 }
 
-.text-gray-700 {
-  color: #f4f4f5 !important; /* Более яркий вариант #374151 */
+.error-bg {
+  @apply bg-error/10 border-error/20;
+}
+
+/* Обновленные стили для светлой темы */
+.text-bright {
+  @apply text-white;
+}
+
+.text-medium {
+  @apply text-gray-300;
+}
+
+/* Стили для навигации */
+.nav-item-active {
+  @apply bg-gold/20 text-gold;
+}
+
+.nav-item-inactive {
+  @apply text-white hover:text-gold hover:bg-gold/10; /* Цвет текста белым, при ховере акцентный */
 }
